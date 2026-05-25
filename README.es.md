@@ -7,7 +7,7 @@
 
 [**English**](README.md)
 
-Un bot de Discord con IA gratuito que habla inglés y español, impulsado por Google Gemini. Puede ver imágenes, leer PDFs, escuchar audios, obtener contenido de enlaces y mantener contexto de conversación por canal.
+Tu puerta de entrada a Google Gemini en Discord — un asistente bilingüe gratuito que ve imágenes, lee PDFs, escucha audios, obtiene contenido web y recuerda tus conversaciones a través de los canales.
 
 > Despliega gratis en **[OrionHost](https://orionhost.xyz)**
 

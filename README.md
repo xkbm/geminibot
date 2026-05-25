@@ -7,7 +7,7 @@
 
 [**Español**](README.es.md)
 
-A free AI Discord bot that speaks English and Spanish, powered by Google Gemini. It can see images, read PDFs, listen to audio, fetch web content, and maintain conversation context across channels.
+Your Discord gateway to Google Gemini — a free, bilingual AI assistant that sees images, reads PDFs, listens to audio, fetches web content, and remembers your conversations across channels.
 
 > Deploy for free on **[OrionHost](https://orionhost.xyz)**
 
