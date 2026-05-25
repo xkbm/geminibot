@@ -365,6 +365,14 @@ async def setchannel(ctx, option: str = None):
     await ctx.send(f":white_check_mark: Now auto-responding in {ctx.channel.mention}.")
 
 
+def _detect_language(text: str) -> str:
+    if re.search(r'[áéíóúñü¿¡]', text):
+        return "Spanish"
+    spanish_words = r'\b(hola|gracias|por|favor|si|no|que|como|esta|es|un|una|el|la|los|las|de|del|en|con|para|porque|buenos|dias|tarde|noche|adios|chao|vale|listo|claro|nunca|siempre|ya|voy|vas|va|dar|hacer|tener|ser|estar|pero|mas|menos|muy|bien|mal|cosa|tiempo|dia|año|casa|mundo|vida|hombre|mujer|amigo|trabajo|ayuda|gracias|hola|como)\b'
+    if re.search(spanish_words, text, re.IGNORECASE):
+        return "Spanish"
+    return "English"
+
 def _get_user_name(message: discord.Message) -> str:
     return message.author.name if hasattr(message.author, 'name') else str(message.author)
 
@@ -416,11 +424,12 @@ async def _process_message(message: discord.Message, user_name: str):
                 else:
                     input_content.append({"type": "text", "text": joined})
 
+        user_lang = _detect_language(message.content)
         system_instruction = (
             "You are GeminiFake, an AI assistant integrated in Discord. "
             "You are bilingual (English/Spanish). "
             f"The user talking to you is {user_name}. "
-            "Respond in English by default. If the user writes in Spanish, respond in Spanish. "
+            f"Respond in {user_lang}. Always respond in {user_lang} regardless of what language the AI reply is written in. "
             "Be brief and direct to be fast. "
             "If they send images, describe them or answer about their content. "
             "If they send PDFs, videos or audio, analyze them as requested. "
